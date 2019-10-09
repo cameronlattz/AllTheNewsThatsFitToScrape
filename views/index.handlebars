@@ -1,19 +1,33 @@
-<a href="https://github.com/cameronlattz/allthenewsthatsfittoscrape" id="githubLink">GitHub</a>
-<h1 class="font-effect-shadow-multiple">All the News That's Fit to Scrape</h1>
-<button id="scrape">Scrape news</button>
+<div id="githubWrapper">
+    <a href="https://github.com/cameronlattz/allthenewsthatsfittoscrape" id="githubLink">GitHub</a>
+</div>
 <div id="container">
-    <form>
-        <img class="icon" src="#">
+    <form class="articleForm">
         <a class="link" href="#"></a>
-        <div class="summary"></div>
+        <p class="summary"></p>
         <ul class="comments"></ul>
         <textarea name="comment"></textarea>
         <input type="submit" value="Comment">
     </form>
-</div>
-<div id="loadingWrapper" class="hide">
-    <div id="loading">
-        <h1>Scraping...</h1>
+    <h1>
+        The Daily Scraper
+        <img id="scrapeImg" src="assets/images/refresh.png" alt="Scrape News"></img>
+    </h1>
+    <div id="sitesList"></div>
+    <h2 id="subHeader">Wednesday, October 8th</h2>
+    <form id="filterForm">
+        <input placeholder="Keywords" name="keywords">
+        <input type="submit" value="Filter">
+    </form>
+    <form id="addFeedForm">
+        <input placeholder="Feed url" name="url">
+        <input placeholder="Site name" name="site">
+        <input type="submit" value="Add feed">
+    </form>
+    <div id="articles">
+    </div>
+    <div id="loading" class="hide">
+        <h2>Scraping...</h2>
         <img src="assets/images/loading.gif">
     </div>
 </div>

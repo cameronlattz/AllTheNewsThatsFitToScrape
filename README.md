@@ -1,12 +1,9 @@
 # AllTheNewsThatsFitToScrape
 
 TODO:
-add styling
-scrape news in parallel
-add site pics
-alternate listed news by site
-create readme
+add ability to remove feeds
 add login
-add ability to delete
+add ability to delete comments
 add ability to filter news
-update readme
+rotate refresh png on click
+create readme
