@@ -1,5 +1,5 @@
 (function() {
-    const _articles = [];
+    let _articles = [];
 
     const _addFeed = function(event) {
         event.preventDefault();

@@ -1,6 +1,7 @@
 # AllTheNewsThatsFitToScrape
 
 TODO:
+convert site sections to table
 add ability to remove feeds
 add login
 add ability to delete comments
