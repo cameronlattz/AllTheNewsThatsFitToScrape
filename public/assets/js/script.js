@@ -50,7 +50,12 @@
     }
 
     const _alert = function(message) {
-        alert(message);
+        const alertDiv = document.getElementById("alertDiv");
+        alertDiv.innerText = message;
+        alertDiv.classList.add("show");
+        setTimeout(function() {
+            alertDiv.classList.remove("show");
+        }, 3000);
     }
 
     const _buildComments = function(ul, comments) {
@@ -83,6 +88,14 @@
         const articlesTr = document.getElementById("articles");
         articlesTr.innerHTML = "";
         const sites = [...new Set(articles.map(article => article.site))].sort();
+        if (sites.length === 0) {
+            const td = document.createElement("td");
+            const h3 = document.createElement("h3");
+            h3.classList.add("no-feeds");
+            h3.innerText = "No feeds added. Please add an RSS feed to continue.";
+            td.append(h3);
+            articlesTr.append(td);
+        }
         document.getElementById("scrapeImg").classList.remove("spin");
         sites.forEach(site => {
             const siteTd = document.createElement("td");
@@ -133,7 +146,9 @@
     }
 
     const _init = function() {
-        document.getElementById("scrapeImg").addEventListener("click", _scrape);
+        const scrapeImg = document.getElementById("scrapeImg");
+        scrapeImg.classList.add("spin");
+        scrapeImg.addEventListener("click", _scrape);
         document.getElementById("addFeedForm").addEventListener("submit", _addFeed);
         document.getElementById("filterForm").addEventListener("submit", _filterArticles);
         fetch("api/articles").then(function(response) {
@@ -143,6 +158,7 @@
             if (articles.length === 0) {
                 _scrape();
             } else {
+                scrapeImg.classList.remove("spin");
                 _displayArticles(articles);
             }
         });
@@ -192,12 +208,13 @@
                 _scrape();
             });
         } else {
-            _alert("You must have at least 3 RSS feeds.");
+            _alert("You cannot have less than 3 RSS feeds.");
         }
     }
 
     const _scrape = function() {
         document.getElementById("articles").innerHTML = "";
+        document.getElementById("filterForm").keywords.value = "";
         document.getElementById("filterForm").classList.add("hide");
         document.getElementById("addFeedForm").classList.add("hide");
         document.getElementById("loading").classList.remove("hide");

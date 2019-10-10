@@ -19,6 +19,7 @@
 body {
     background-image: url("http://carloscucinaitaliana.com/wp-content/uploads/2015/03/newspaper-background.jpg");
     background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif
 }
 h1 {
     font-family: "Chomsky", "Franklin Gothic Medium", Arial;
@@ -195,4 +196,20 @@ li {
 }
 #articles h3 a {
     display: inline;
+}
+.no-feeds {
+    margin: 100px 0;
+}
+#alertDiv {
+    position: absolute;
+    bottom: -100px;
+    right: 3px;
+    background-color: #a71212;
+    color: #f6f6f6;
+    padding: 10px;
+    font-size: 7vmin;
+    transition: bottom 0.5s ease-in-out;
+}
+#alertDiv.show {
+    bottom: 3px;
 }
