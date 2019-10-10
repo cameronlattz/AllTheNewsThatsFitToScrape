@@ -7,7 +7,7 @@ The Daily Scraper is an app that scrapes RSS news feeds and displays their artic
 **News feeds:**  
 To add a news feed, first add the site's name to the "Site name" input box on the top right. Then paste an RSS feed url into the "Feed url" input and hit enter or the "Add Feed" button.  
 To remove a news feed, click the "x" button next to the site name in the article list.  
-NOTE: Not all RSS feeds will work. Some, especially ones that are wrapped in a JS function, are not formatted in a way that the scraper can read.
+NOTE: Not all RSS feeds will work. Some, especially ones that are wrapped in a JS function, are not formatted in a way that the scraper can read. A partial list of working RSS feeds is included below.
 
 **Comments:**  
 To add a comment, enter a comment into the text box underneath an article and click "Add Comment".  
