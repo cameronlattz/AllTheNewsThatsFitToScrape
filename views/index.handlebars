@@ -20,12 +20,13 @@
         <input type="submit" value="Filter">
     </form>
     <form id="addFeedForm">
-        <input placeholder="Feed url" name="url">
+        <input placeholder="RSS url" name="url">
         <input placeholder="Site name" name="site">
         <input type="submit" value="Add feed">
     </form>
-    <div id="articles">
-    </div>
+    <table>
+        <tr id="articles"></tr>
+    </table>
     <div id="loading" class="hide">
         <h2>Scraping...</h2>
         <img src="assets/images/loading.gif">

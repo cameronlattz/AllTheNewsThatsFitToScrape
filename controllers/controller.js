@@ -33,8 +33,15 @@ router.get("/api/articles/scrape", async function(req, res) {
     });
 });
 
-router.post("/api/articles/:id/comment", function(req, res) {
-    Articles.updateOne({_id: req.body.articleId}, {$push: { comments: req.body.comment}})
+router.post("/api/articles/:id/comments", function(req, res) {
+    Articles.updateOne({_id: req.params.id}, {$push: { comments: req.body.comment}})
+        .then(function(response) {
+            res.send(JSON.stringify(response));
+        });
+});
+
+router.delete("/api/articles/:id/comments", function(req, res) {
+    Articles.updateOne({_id: req.params.id}, {$pull: { comments: req.body.comment}})
         .then(function(response) {
             res.send(JSON.stringify(response));
         });
@@ -49,6 +56,20 @@ router.delete("/api/feeds/:id", function(req, res) {
 router.post("/api/feeds", function(req, res) {
     Feeds.create(req.body).then(function(response) {
         res.send(JSON.stringify(response));
+    });
+});
+
+router.get("/api/feeds", function(req, res) {
+    Feeds.find({}).then(function(response) {
+        res.send(JSON.stringify(response));
+    });
+});
+
+router.delete("/api/feeds", function(req, res) {
+    Feeds.deleteMany({site: req.body.name}).then(function(response) {
+        Articles.deleteMany({site: req.body.name}).then(function(response) {
+            res.send(JSON.stringify(response));
+        });
     });
 });
 
